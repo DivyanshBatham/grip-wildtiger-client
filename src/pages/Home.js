@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import Block from "../components/Block";
 import Timings from "../components/Timings";
+import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
 
 const Home = props => {
-  console.log("Home.js", props);
+  // console.log("Home.js", props);
   return (
     <>
       <Hero
@@ -24,7 +26,7 @@ const Home = props => {
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-7">
+            <div className="col-sm-12 col-md-7 vAlign">
               <div className="block-head">
                 <h4 className="block__heading">Discover</h4>
                 <h3 className="block__subheading">Our Story</h3>
@@ -37,8 +39,10 @@ const Home = props => {
                   Suspendisse et turpis nibh. Fusce sed venenatis neque. Cras
                   vitae porta diam. Cras nec dictum orci. Quisque at malesuada
                   nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer ex est, scelerisque ut enim in, faucibus venenatis
-                  neque. Vivamus finibus dapibus nisi, vitae condimentum lacus.
+                  Integer exest, scelerisque ut enim in, faucibus venenatis
+                  neque. <br />
+                  <br />
+                  Vivamus finibus dapibus nisi, vitae condimentum lacus.
                   Suspendisse et turpis nibh. Fusce sed venenatis neque. Cras
                   vitae porta diam. Cras nec dictum orci. Quisque at malesuada
                   nisl.
@@ -49,21 +53,23 @@ const Home = props => {
                 </p>
               </div>
             </div>
-            <div className="col-5">
+            <div className="col-sm-12 col-md-5 vAlign">
               <div className="widescreen-ratio outside" />
             </div>
           </div>
         </div>
       </section>
+
       <section className="dark-section">
         <div className="container">
-          <div className="box" />
+          <Services />
         </div>
       </section>
+
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <Block
                 heading="Discover"
                 subheading="Our Menu"
@@ -72,19 +78,23 @@ const Home = props => {
                 href_text="View Full Menu"
               />
             </div>
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <div className="widescreen-ratio">
-                {/* <div>A</div>
-                <div>B</div>
-                <div>C</div>
-                <div>D</div> */}
+                <div className="menu-grid">
+                  <div>A</div>
+                  <div>B</div>
+                  <div>C</div>
+                  <div>D</div>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="row">
-            <div className="col-6">Menu Images</div>
-            <div className="col-6">
+            <div className="col-xs-12 col-sm-6 vAlign">
+              <div className="widescreen-ratio bar" />
+            </div>
+            <div className="col-xs-12 col-sm-6 vAlign">
               <Block
                 heading="Chill in"
                 subheading="The Bar"
@@ -96,32 +106,35 @@ const Home = props => {
           </div>
         </div>
       </section>
-      <section className="dark-section">
-        <div className="container">
-          <div className="box" />
-        </div>
+
+      <section className="dark-section testimonials">
+        {/* <div className="container flex-center"> */}
+          <Testimonials />
+        {/* </div> */}
       </section>
+
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <Block
-                heading="Make in"
+                heading="Make a"
                 subheading="Reservation"
                 text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
                 href="/"
                 href_text="Book your table"
               />
             </div>
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <div className="widescreen-ratio" />
             </div>
           </div>
+
           <div className="row">
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <div className="widescreen-ratio" />
             </div>
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <Block
                 heading="Take Out"
                 subheading="Food"
@@ -137,9 +150,9 @@ const Home = props => {
       <section className="map-section">
         <div className="container">
           {/* <div className="row"> */}
-            {/* <div className="col-4"> */}
-              <Timings />
-            {/* </div> */}
+          {/* <div className="col-4"> */}
+          <Timings />
+          {/* </div> */}
           {/* </div> */}
         </div>
       </section>
@@ -147,7 +160,7 @@ const Home = props => {
       <section>
         <div className="container">
           <div className="row">
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               <Block
                 heading="Subscribe"
                 subheading="Newsletter"
@@ -157,12 +170,14 @@ const Home = props => {
                 href_text="Subscribe"
               />
             </div>
-            <div className="col-6 vAlign">
+            <div className="col-xs-12 col-sm-6 vAlign">
               {/* <div className="widescreen-ratio" /> */}
             </div>
           </div>
         </div>
       </section>
+
+      <footer />
     </>
   );
 };

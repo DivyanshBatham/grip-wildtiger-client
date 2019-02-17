@@ -15,7 +15,7 @@ const Timings = () => {
 
   for (let day in times) {
     spans.push(
-      <div className="schedule__timings-row">
+      <div className="schedule__timings-row" key={day}>
         <span className="day">{day}</span>
         <span className="time">{times[day]}</span>
       </div>

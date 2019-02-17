@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Block = props => {
+  // console.log(this.props.dsda);
   return (
     <>
       <div className="block-head">
@@ -11,10 +12,14 @@ const Block = props => {
       <div className="block-body">
         <p>
           {props.text}
-          <br />
-          <Link to={props.href} className="block-link">
-            {props.href_text}
-          </Link>
+          {props.href && (
+            <>
+              <br />
+              <Link to={props.href} className="block-link">
+                {props.href_text}
+              </Link>
+            </>
+          )}
         </p>
       </div>
     </>

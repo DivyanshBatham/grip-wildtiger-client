@@ -1,7 +1,7 @@
 import React from "react";
 
 const Hero = props => {
-  console.log("Hero.js", props);
+  // console.log("Hero.js", props);
   return (
     <header className={props.bg_class}>
       <div className="hero shadow">
