@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/grip-wildtiger-client/static/media/paw.661c0fcd.svg"
   },
   {
-    "revision": "8bb7b1d3f0109b61b750",
+    "revision": "7cfcef9a56a5529e4e44",
     "url": "/grip-wildtiger-client/static/css/main.ddaac516.chunk.css"
   },
   {
@@ -40,8 +40,8 @@ self.__precacheManifest = [
     "url": "/grip-wildtiger-client/static/media/quote-end.04d59842.svg"
   },
   {
-    "revision": "8bb7b1d3f0109b61b750",
-    "url": "/grip-wildtiger-client/static/js/main.8bb7b1d3.chunk.js"
+    "revision": "7cfcef9a56a5529e4e44",
+    "url": "/grip-wildtiger-client/static/js/main.7cfcef9a.chunk.js"
   },
   {
     "revision": "75c039ee850217a01fe846a70a3f8f2b",
@@ -64,19 +64,19 @@ self.__precacheManifest = [
     "url": "/grip-wildtiger-client/static/media/menu-bg.d7029b02.jpg"
   },
   {
-    "revision": "65249cef9671ef3528de8b4fa1566cf8",
-    "url": "/grip-wildtiger-client/static/media/home-bg.65249cef.png"
-  },
-  {
     "revision": "a4b4694d5484f5e0965a2964a5a2e28a",
     "url": "/grip-wildtiger-client/static/media/bar.a4b4694d.jpg"
+  },
+  {
+    "revision": "65249cef9671ef3528de8b4fa1566cf8",
+    "url": "/grip-wildtiger-client/static/media/home-bg.65249cef.png"
   },
   {
     "revision": "e538f695c5815482d985acc5ba7ca5a4",
     "url": "/grip-wildtiger-client/static/media/wood-bg-edit-min.e538f695.jpg"
   },
   {
-    "revision": "b764ad77765b0e3d07b321f4f23bcda5",
+    "revision": "37c7a05d2f3022a7474a050833e88aee",
     "url": "/grip-wildtiger-client/index.html"
   }
 ];
