@@ -60,16 +60,16 @@ self.__precacheManifest = [
     "url": "/grip-wildtiger-client/static/media/reservation-bg.820082a0.jpg"
   },
   {
-    "revision": "d7029b02c4bd24e635208122a1a54b86",
-    "url": "/grip-wildtiger-client/static/media/menu-bg.d7029b02.jpg"
+    "revision": "65249cef9671ef3528de8b4fa1566cf8",
+    "url": "/grip-wildtiger-client/static/media/home-bg.65249cef.png"
   },
   {
     "revision": "a4b4694d5484f5e0965a2964a5a2e28a",
     "url": "/grip-wildtiger-client/static/media/bar.a4b4694d.jpg"
   },
   {
-    "revision": "65249cef9671ef3528de8b4fa1566cf8",
-    "url": "/grip-wildtiger-client/static/media/home-bg.65249cef.png"
+    "revision": "d7029b02c4bd24e635208122a1a54b86",
+    "url": "/grip-wildtiger-client/static/media/menu-bg.d7029b02.jpg"
   },
   {
     "revision": "e538f695c5815482d985acc5ba7ca5a4",
