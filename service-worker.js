@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/grip-wildtiger-client/precache-manifest.6bae3fb3d00be50d8acdbdde3d975ad2.js"
+  "/grip-wildtiger-client/precache-manifest.3ff18b04d1fcc70a410ade2a98fea791.js"
 );
 
 workbox.clientsClaim();

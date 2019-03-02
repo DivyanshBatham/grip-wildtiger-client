@@ -6,7 +6,7 @@
   "static/js/1.a44e99e8.chunk.js.map": "/grip-wildtiger-client/static/js/1.a44e99e8.chunk.js.map",
   "runtime~main.js": "/grip-wildtiger-client/static/js/runtime~main.ab0f7cb5.js",
   "runtime~main.js.map": "/grip-wildtiger-client/static/js/runtime~main.ab0f7cb5.js.map",
-  "static/media/App.scss": "/grip-wildtiger-client/static/media/reservation-bg.820082a0.jpg",
+  "static/media/App.scss": "/grip-wildtiger-client/static/media/menu-bg.d7029b02.jpg",
   "static/media/services-dinein.svg": "/grip-wildtiger-client/static/media/services-dinein.f7b75496.svg",
   "static/media/services-reserved.svg": "/grip-wildtiger-client/static/media/services-reserved.65b48c97.svg",
   "static/media/services-bar.svg": "/grip-wildtiger-client/static/media/services-bar.45a4cd9c.svg",
@@ -15,6 +15,6 @@
   "static/media/services-takeout.svg": "/grip-wildtiger-client/static/media/services-takeout.5751399f.svg",
   "static/css/main.de37af99.chunk.css.map": "/grip-wildtiger-client/static/css/main.de37af99.chunk.css.map",
   "index.html": "/grip-wildtiger-client/index.html",
-  "precache-manifest.6bae3fb3d00be50d8acdbdde3d975ad2.js": "/grip-wildtiger-client/precache-manifest.6bae3fb3d00be50d8acdbdde3d975ad2.js",
+  "precache-manifest.3ff18b04d1fcc70a410ade2a98fea791.js": "/grip-wildtiger-client/precache-manifest.3ff18b04d1fcc70a410ade2a98fea791.js",
   "service-worker.js": "/grip-wildtiger-client/service-worker.js"
 }
