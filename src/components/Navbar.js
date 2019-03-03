@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
+
 import Underline from "./Underline";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isHamActive: false,
       defaultState: { width: "", left: "" }
     };
   }
+
+  hamburgerActive = e => {
+    this.setState(prevState => ({
+      isHamActive: !prevState.isHamActive
+    }));
+  };
 
   handleMouseEnter = e => {
     const targetData = e.target.getBoundingClientRect();
@@ -52,16 +60,48 @@ class Navbar extends Component {
 
   render() {
     return (
-      // <nav className="heronav heronav-solidbg">
+      <>
+      <nav className={this.state.isHamActive ? "hamburger__menu active" : "hamburger__menu"}>
+        <ul>
+          <li><NavLink exact to="/" onClick={this.hamburgerActive}>Home</NavLink></li>
+          <li><NavLink to="/about" onClick={this.hamburgerActive}>About</NavLink></li>
+          <li><NavLink to="/menu/appetizers" onClick={this.hamburgerActive}>Menu</NavLink></li>
+          <li><NavLink to="/bar" onClick={this.hamburgerActive}>Bar</NavLink></li>
+          <li><NavLink to="/reservation" onClick={this.hamburgerActive}>Reservation</NavLink></li>
+          <li><NavLink to="/contact" onClick={this.hamburgerActive}>Contact</NavLink></li>
+        </ul>
+
+      </nav>
       <nav
         className={
-          this.props.darkTheme === true ? "heronav heronav-solidbg" : "heronav"
+          "heronav " +
+          (this.props.darkTheme ? " heronav-solidbg" : "") +
+          (this.state.isHamActive ? " heronav-ham" : "")
         }
       >
         <div className="heronav__container container">
           <Link to="/" className="heronav__logo">
             Wild Tiger
           </Link>
+
+          {/* <button className={ "hamburger hamburger--3dx " + (this.state.isHamActive? "is-active": "")} type="button" onClick={this.hamburgerActive}>
+            <span className="hamburger-box">
+              <span className="hamburger-inner" />
+            </span>
+          </button> */}
+          <div
+            className={
+              "hamburger hamburger--3dx " +
+              (this.state.isHamActive ? "is-active" : "")
+            }
+            onClick={this.hamburgerActive}
+            tabIndex="0"
+          >
+            <div className="hamburger-box">
+              <div className="hamburger-inner" />
+            </div>
+          </div>
+
           <ul className="main-nav" onMouseLeave={this.handleMouseLeave}>
             <li>
               <NavLink
@@ -73,7 +113,7 @@ class Navbar extends Component {
                 Home
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to="/about"
                 onClick={this.handleClick}
@@ -81,10 +121,11 @@ class Navbar extends Component {
               >
                 About
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to="/menu"
+                // to="/menu/appetizers" THIS THROWS ERROR
                 onClick={this.handleClick}
                 onMouseEnter={this.handleMouseEnter}
               >
@@ -98,6 +139,15 @@ class Navbar extends Component {
                 onMouseEnter={this.handleMouseEnter}
               >
                 Bar
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/gallert"
+                onClick={this.handleClick}
+                onMouseEnter={this.handleMouseEnter}
+              >
+                Gallery
               </NavLink>
             </li>
             <li>
@@ -125,6 +175,7 @@ class Navbar extends Component {
           </ul>
         </div>
       </nav>
+      </>
     );
   }
 }

@@ -10,6 +10,15 @@ const Timings = () => {
     Saturday: "12:00AM - 10:00PM",
     Sunday: "12:00AM - 9:00PM"
   };
+  // const times = {
+  //   Monday: "11 AM - 9 PM",
+  //   Tuesday: "11 AM - 9 PM",
+  //   Wedneday: "11 AM - 9 PM",
+  //   Thursday: "11 AM - 9 PM",
+  //   Friday: "11 AM - 10 PM",
+  //   Saturday: "12 AM - 10 PM",
+  //   Sunday: "12 AM - 9 PM"
+  // };
 
   let spans = [];
 

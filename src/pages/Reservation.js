@@ -9,7 +9,7 @@ const Reservation = () => {
         sub="Browse our Tables"
         main="Reservation"
         cta="Book Now"
-        bg_class="reservation"
+        bg_class="reservation-bg"
       />
       <section className="container">
         <div className="row">

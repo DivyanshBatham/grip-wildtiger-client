@@ -18,22 +18,22 @@ class Testimonials extends Component {
             "This is the first time I've been at this place and I would definitely recommended it! Usually my go-to place is Thai Wok Kitchen over on Fourth Plain Blvd., but I wanted to give this place a shot. I ordered the pot stickers, Larb, and a side of steamed rice while my other friends ordered Pad Thai."
         },
         {
-          name: "John Doe",
-          img: "https://randomuser.me/api/portraits/men/65.jpg",
+          name: "Lindsay B.",
+          img: "https://s3-media3.fl.yelpcdn.com/photo/N5JtFVTK5fh9kChK2y-dsQ/90s.jpg",
           profession: "Foodie",
-          date: "10th Feb, 2019",
+          date: "9th Oct, 2018",
           rating: 5,
           review:
-            "This is the first time I've been at this place and I would definitely recommended it!"
+            "Great spot. I can tell the food is fresh. Seriously, you NEED to try their iced coffee or iced tea. It's freaking CRAZY GOOD. Very sweet, but delicious. The food is great too, the pineapple fried rice and soups are amazing. Keep it coming, guys!"
         },
         {
-          name: "Susan Rhodes",
+          name: "Cindy H.",
           img: "https://randomuser.me/api/portraits/women/96.jpg",
           profession: "Journalist",
-          date: "17th Feb, 2019",
+          date: "7th Oct, 2018",
           rating: 5,
           review:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex est, scelerisque ut enim in, faucibus venenatis neque. Vivamus finibus dapibus nisi, vitae condimentum lacus. Suspendisse et turpis nibh. Fusce sed venenatis neque. Cras vitae porta diam. Cras nec dictum orci. Quisque at malesuada nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer exest, scelerisque ut enim in, faucibus venenatis neque."
+            "Every time we've come to Wild Tiger we've been impressed.  The servers are friendly, hospitable, and helpful. The atmosphere is comfortable and decorated nicely without being over done. Food is delicious. We've never had anything we haven't liked. We've been to many Thai restaurants, and the Wild Tiger consistently has great food."
         }
       ],
       activeTab: 0

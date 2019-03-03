@@ -15,7 +15,7 @@ const Block = props => {
           {props.href && (
             <>
               <br />
-              <Link to={props.href} className="block-link">
+              <Link to={props.href} className="block-link except-mobile">
                 {props.href_text}
               </Link>
             </>
