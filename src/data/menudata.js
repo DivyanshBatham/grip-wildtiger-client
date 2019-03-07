@@ -453,12 +453,9 @@ const data = {
         price: "$4"
       },
       {
-        name: "Mango Sticky Rice",
-        price: "$6"
-      },
-      {
-        name: "(Seasonal) + ice cream",
-        custom_price: "+ $2"
+        name: "Mango Sticky Rice (Seasonal)",
+        price: "$6",
+        custom_price: "(add ice cream $2)"
       },
       {
         name: "Lava Cake",

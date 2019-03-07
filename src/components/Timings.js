@@ -1,6 +1,6 @@
 import React from "react";
 
-const Timings = () => {
+const Timings = props => {
   const times = {
     Monday: "11:00AM - 9:00PM",
     Tuesday: "11:00AM - 9:00PM",
@@ -31,12 +31,14 @@ const Timings = () => {
     );
   }
 
+  if (props.forFooter) return <>{spans}</>;
+
   return (
     <div className="schedule">
       <h5 className="schedule__heading">We are open</h5>
       <h5 className="schedule__subheading">7 days a week</h5>
       {/* <div className="schedule__timings"> */}
-        {spans}
+      {spans}
       {/* </div> */}
     </div>
   );

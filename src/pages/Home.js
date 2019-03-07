@@ -108,7 +108,7 @@ class Home extends Component {
                     <div />
                   </div>
                 </div>
-                <Link to="/" className="block-link mobile-only">
+                <Link to="/menu" className="block-link mobile-only">
                   View Full Menu
                 </Link>
               </div>

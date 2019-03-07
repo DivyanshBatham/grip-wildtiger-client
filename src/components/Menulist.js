@@ -9,6 +9,8 @@ class MenuList extends Component {
 
   componentDidMount = () => {
     console.log("Menulist.js mounted");
+    // if(this.props.fixScroll)
+    //   this.props.fixScroll();
   };
 
   componentDidUpdate = () => {
@@ -34,7 +36,7 @@ class MenuList extends Component {
               <div className="foodmenu__custom_menu foodmenu__item">
                 {this.props.data.custom_menu.map(menu => {
                   return (
-                    <div className="foodmenu__custom_menu-row">
+                    <div className="foodmenu__custom_menu-row" key={menu.item}>
                       <span>{menu.item}</span>
                       <span style={{ alignSelf: "flex-end" }}>
                         {menu.price}
@@ -48,7 +50,7 @@ class MenuList extends Component {
               return (
                 <div
                   className="foodmenu__item new"
-                  key={this.props.category + item.name}
+                  key={this.props.category + item.name + item.description }
                 >
                   <div className="foodmenu__item__heading">
                     <span>{item.name}</span>

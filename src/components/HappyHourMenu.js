@@ -1,7 +1,7 @@
 import React from "react";
 import MenuList from "./Menulist";
 
-import happyhourdata from "../happyhourdata";
+import happyhourdata from "../data/happyhourdata";
 
 const HappyHourMenu = () => {
   return (
@@ -12,7 +12,7 @@ const HappyHourMenu = () => {
         menu *
       </p>
       {Object.keys(happyhourdata).map(category => (
-        <MenuList category={category} data={happyhourdata[category]} />
+        <MenuList category={category} data={happyhourdata[category]} key={category}/>
       ))}
       <p className="happyhour__terms">
         * available for dine-in only, requires a minimum of one drink per
