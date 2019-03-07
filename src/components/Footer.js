@@ -1,7 +1,6 @@
 import React from "react";
 
 import Timings from "./Timings";
-
 import Contact from "./Contact";
 
 const yelp = (

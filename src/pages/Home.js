@@ -8,6 +8,7 @@ import Testimonials from "../components/Testimonials";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -65,17 +66,17 @@ class Home extends Component {
                     vitae porta diam. Cras nec dictum orci. Quisque at malesuada
                     nisl.
                     <br />
-                    <Link to="/" className="block-link except-mobile">
+                    {/* <Link to="/" className="block-link except-mobile">
                       Read More
-                    </Link>
+                    </Link> */}
                   </p>
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-5 vAlign">
                 <div className="widescreen-ratio outside" />
-                <Link to="/" className="block-link mobile-only">
+                {/* <Link to="/" className="block-link mobile-only">
                   Read More
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

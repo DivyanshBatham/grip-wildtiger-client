@@ -1,5 +1,7 @@
 import React from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+// import brushSvg from "../assets/brushStroke";
+// import Brush from "../assets/brush-stroke.svg";
 
 const Hero = props => {
   // console.log("Hero.js", props);
@@ -21,6 +23,10 @@ const Hero = props => {
 
         <button className="cta">{props.cta}</button>
       </div>
+      {/* <div className="brushWrapper">
+        <Brush />
+      </div> */}
+      {/* {brushSvg} */}
     </header>
   );
 };
