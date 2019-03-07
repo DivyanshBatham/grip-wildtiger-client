@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "c3f42fdf2d69a882451206097eeb551b",
-    "url": "/grip-wildtiger-client/static/media/reservation.c3f42fdf.jpg"
+    "revision": "14ef90c6f93b9212aae7c1197686ebf1",
+    "url": "/grip-wildtiger-client/static/media/outside-edit-min.14ef90c6.jpg"
   },
   {
-    "revision": "f3430477f7545ea6acfc",
-    "url": "/grip-wildtiger-client/static/css/main.de37af99.chunk.css"
+    "revision": "c12ba3163105290a5e53",
+    "url": "/grip-wildtiger-client/static/css/main.e9175445.chunk.css"
   },
   {
-    "revision": "a44e99e8c4f23642c1d4",
-    "url": "/grip-wildtiger-client/static/js/1.a44e99e8.chunk.js"
+    "revision": "96718e7893e8e8d682b2",
+    "url": "/grip-wildtiger-client/static/js/1.96718e78.chunk.js"
   },
   {
     "revision": "ab0f7cb523c13d72b970",
@@ -48,12 +48,12 @@ self.__precacheManifest = [
     "url": "/grip-wildtiger-client/static/media/2.6f3f5c23.jpg"
   },
   {
-    "revision": "14ef90c6f93b9212aae7c1197686ebf1",
-    "url": "/grip-wildtiger-client/static/media/outside-edit-min.14ef90c6.jpg"
+    "revision": "c3f42fdf2d69a882451206097eeb551b",
+    "url": "/grip-wildtiger-client/static/media/reservation.c3f42fdf.jpg"
   },
   {
-    "revision": "f3430477f7545ea6acfc",
-    "url": "/grip-wildtiger-client/static/js/main.f3430477.chunk.js"
+    "revision": "c12ba3163105290a5e53",
+    "url": "/grip-wildtiger-client/static/js/main.c12ba316.chunk.js"
   },
   {
     "revision": "a86aa0381f6fb5972dcaa9814a62e222",
@@ -96,11 +96,15 @@ self.__precacheManifest = [
     "url": "/grip-wildtiger-client/static/media/reservation-bg.820082a0.jpg"
   },
   {
+    "revision": "a40430d97750e66a21afedfba72fe249",
+    "url": "/grip-wildtiger-client/static/media/bar1.a40430d9.jpg"
+  },
+  {
     "revision": "d7029b02c4bd24e635208122a1a54b86",
     "url": "/grip-wildtiger-client/static/media/menu-bg.d7029b02.jpg"
   },
   {
-    "revision": "04b4d6d1eb6b3581e970b26288a5aa28",
+    "revision": "24dfe22d5c2385e602e9d314c9d298f0",
     "url": "/grip-wildtiger-client/index.html"
   }
 ];
