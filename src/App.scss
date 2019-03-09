@@ -128,6 +128,13 @@ $tablet: 768px;
   background-position: 0 0;
 }
 
+.special {
+  @include background(url("./assets/a-min.jpg"), false, inherit);
+  // @include background(url("./assets/b.jpg"), false, inherit);
+  // @include background(url("./assets/c.jpg"), false, inherit);
+  // @include background(url("./assets/d.jpg"), false, inherit);
+}
+
 .dark-section {
   @include background(url("./assets/wood-bg-min.jpg"));
 }
@@ -424,6 +431,7 @@ section {
   text-decoration: none;
   position: relative;
   margin-top: 1em;
+  cursor: pointer;
   // background: rebeccapurple;
 }
 
@@ -1193,6 +1201,7 @@ footer {
     font-size: 2.5rem;
     text-align: center;
     margin: 0;
+    margin-top: 1rem;
   }
 
   &__description,

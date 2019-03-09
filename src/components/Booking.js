@@ -115,7 +115,7 @@ class Booking extends Component {
         { value: "18", label: "18 People" },
         { value: "19", label: "19 People" },
         { value: "20", label: "20 People" },
-        { value: "20+", label: "More than 20" }
+        { value: "20+", label: "More than 20, Party?" }
       ],
       timeOptions: []
     };
@@ -201,6 +201,11 @@ class Booking extends Component {
   };
 
   componentDidMount = () => {
+    // console.log("Booking Mounted");
+    // if (this.props.guests)
+    //   this.setState({
+    //     guests: this.props.guests
+    //   });
     // console.log(times);
     // let time = moment(new Date().getTime())
     //   .utcOffset("-0800")
@@ -208,10 +213,8 @@ class Booking extends Component {
     // let day = moment(new Date().getTime())
     //   .utcOffset("-0800")
     //   .format("dddd");
-
     // let [h, m] = time.split(":");
     // console.log(time, day, h, m);
-
     // export const times = {
     //   Monday: "11:00AM - 9:00PM",
     //   Tuesday: "11:00AM - 9:00PM",
@@ -221,7 +224,6 @@ class Booking extends Component {
     //   Saturday: "12:00AM - 10:00PM",
     //   Sunday: "12:00AM - 9:00PM"
     // };
-
     // let [hh, mm, HH, MM] = times[day].match(/\d+/g);
     // console.log(hh, mm, HH, MM);
   };
@@ -246,7 +248,7 @@ class Booking extends Component {
                   }
                 ]
               }}
-              inputProps={{  readOnly: true }}
+              inputProps={{ readOnly: true }}
               onDayChange={this.handleStartDayChange}
               formatDate={formatDate}
               parseDate={parseDate}
@@ -266,7 +268,7 @@ class Booking extends Component {
             <Select
               isSearchable={false}
               options={this.state.guestOptions}
-              value={this.state.guests}
+              value={this.state.guests || this.props.guests}
               placeholder="Guests"
               onChange={this.selectGuest}
               className="selector"
