@@ -16,6 +16,8 @@ class Home extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    // console.log("Home.js Mounted");
+    this.props.findAndSetUnderline();
     // const homebg = new Image();
     // homebg.src = "../assets/menu-bg-min.jpg";
     // homebg.onload = function() {
@@ -31,9 +33,9 @@ class Home extends Component {
         <Hero
           sub="We serve Fresh & Delicious"
           main="Laotian & Thai Cuisines"
-          cta="Hungry? Reserve your spot."
+          cta="Hungry? Reserve your spot!"
           bg_class="home"
-          href="/reservation"
+          href="/reservation/book"
         />
         <section>
           <div className="container">
@@ -144,13 +146,13 @@ class Home extends Component {
                   heading="Make"
                   subheading="Reservation"
                   text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
-                  href="/reservation"
+                  href="/reservation/book"
                   href_text="Book your table"
                 />
               </div>
               <div className="col-xs-12 col-sm-5 vAlign">
                 <div className="widescreen-ratio reservation" />
-                <Link to="/reservation" className="block-link mobile-only">
+                <Link to="/reservation/book" className="block-link mobile-only">
                   Book your table
                 </Link>
               </div>

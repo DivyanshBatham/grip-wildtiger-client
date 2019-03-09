@@ -17,9 +17,49 @@ class App extends Component {
     super(props);
     this.state = {
       darkTheme: false,
-      // currentPage: 'Home',
+      defaultState: { width: "", left: "" }
     };
   }
+
+  handleMouseEnter = e => {
+    const targetData = e.target.getBoundingClientRect();
+    this.setState({
+      hoverState: {
+        width: targetData.width,
+        left: targetData.left
+      }
+    });
+  };
+
+  handleMouseLeave = e => {
+    this.setState({
+      hoverState: false
+    });
+  };
+
+  handleClick = e => {
+    const targetData = e.target.getBoundingClientRect();
+    // TODO: When clicking the same page on nav, smooth scroll to top
+    this.setState({
+      defaultState: {
+        width: targetData.width,
+        left: targetData.left
+      },
+      currentPage: e.target.getAttribute("href")
+    });
+  };
+
+  findAndSetUnderline = () => {
+    const targetData = document
+      .querySelector(".main-nav .active")
+      .getBoundingClientRect();
+    this.setState({
+      defaultState: {
+        width: targetData.width,
+        left: targetData.left
+      }
+    });
+  };
 
   handleScroll = e => {
     // console.log("SCROLLING window.scrollY = ", window.scrollY);
@@ -27,7 +67,7 @@ class App extends Component {
     if (darkTheme !== this.state.darkTheme) {
       this.setState({ darkTheme });
     }
-    
+
     // HELP - If possible, I want to change the bg-color of menu navbar (on /menu /bar) when the navbar hits top.
     // Check whether .foodmenu__nav exits:
     // const foodmenu = document.querySelector('.foodmenu__nav');
@@ -55,13 +95,48 @@ class App extends Component {
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <>
-          <Navbar darkTheme={this.state.darkTheme} />
-          <Route exact path="/" component={Home} />
-          <Route path="/menu" component={Menu} />
+          <Navbar
+            darkTheme={this.state.darkTheme}
+            handleMouseEnter={this.handleMouseEnter}
+            handleMouseLeave={this.handleMouseLeave}
+            handleClick={this.handleClick}
+            // findAndSetUnderline={this.findAndSetUnderline}
+            defaultState={this.state.defaultState}
+            hoverState={this.state.hoverState}
+          />
+          <Route
+            exact
+            path="/"
+            // component={Home}
+            render={props => {
+              return <Home findAndSetUnderline={this.findAndSetUnderline} />;
+            }}
+          />
+          <Route
+            path="/menu"
+            // component={Menu}
+            render={props => {
+              return <Menu findAndSetUnderline={this.findAndSetUnderline} />;
+            }}
+          />
           {/* <Route path="/menu/:category" component={Menu} />  */}
           {/* If category names are fixed */}
-          <Route path="/bar" component={Bar} />
-          <Route path="/reservation" component={Reservation} />
+          <Route
+            path="/bar"
+            // component={Bar}
+            render={props => {
+              return <Bar findAndSetUnderline={this.findAndSetUnderline} />;
+            }}
+          />
+          <Route
+            path="/reservation"
+            // component={Reservation}
+            render={props => {
+              return (
+                <Reservation findAndSetUnderline={this.findAndSetUnderline} routerProps={props}/>
+              );
+            }}
+          />
         </>
       </BrowserRouter>
     );

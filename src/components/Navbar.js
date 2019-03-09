@@ -9,8 +9,6 @@ class Navbar extends Component {
     super(props);
     this.state = {
       isHamActive: false,
-      defaultState: { width: "", left: "" },
-      currentPage: '',
     };
   }
 
@@ -19,77 +17,6 @@ class Navbar extends Component {
       isHamActive: !prevState.isHamActive
     }));
   };
-
-  handleMouseEnter = e => {
-    const targetData = e.target.getBoundingClientRect();
-    this.setState({
-      hoverState: {
-        width: targetData.width,
-        left: targetData.left
-      }
-    });
-  };
-
-  handleMouseLeave = e => {
-    this.setState({
-      hoverState: false
-    });
-  };
-
-  handleClick = e => {
-    // console.log(e);
-    // console.log(e.target);
-    // console.log(e.target.getAttribute('href'));
-    const targetData = e.target.getBoundingClientRect();
-    // TODO: When clicking the same page on nav, smooth scroll to top
-    // scroll.scrollTo(0, {smooth:true ,duration:1000});
-    this.setState({
-      defaultState: {
-        width: targetData.width,
-        left: targetData.left,
-      },
-      currentPage: e.target.getAttribute('href')
-    });
-  };
-  
-  // highlightNav = () => {
-  //   // const targetData = ref.current.getBoundingClientRect();
-  //   const targetData = document
-  //       .querySelector(".main-nav .active")
-  //       .getBoundingClientRect();
-    
-  //   this.setState({
-  //     defaultState: {
-  //       width: targetData.width,
-  //       left: targetData.left
-  //     }
-  //   });
-  // }
-
-  componentDidMount = () => {
-    // console.log(this.props);
-    // alert("Navbar.js Mounted");
-    setTimeout(() => {
-      const targetData = document
-        .querySelector(".main-nav .active")
-        .getBoundingClientRect();
-      this.setState({
-        defaultState: {
-          width: targetData.width,
-          left: targetData.left
-        }
-      });
-    }, 1000);
-  };
-
-  componentDidUpdate = () => {
-    // console.log("Navbar.js updated");
-    // alert("Navbar.js Updated")
-    // console.log(this.props, this.state.currentPage, this.props.location.pathname);
-    // if(this.props.match)
-    // if(this.props.location.pathname !== this.state.currentPage );
-      // this.highlightNav();
-  }
 
   render() {
     return (
@@ -130,7 +57,7 @@ class Navbar extends Component {
                   duration={1000} //constant time no matter what distance is.
                   // duration={ distance =>  distance / 50 }
                   onClick={this.hamburgerActive}
-                  // onMouseEnter={this.handleMouseEnter}
+                  // onMouseEnter={this.props.handleMouseEnter}
                 >
                   Contact
                 </ScrollLink>
@@ -169,13 +96,13 @@ class Navbar extends Component {
               </div>
             </div>
 
-            <ul className="main-nav" onMouseLeave={this.handleMouseLeave}>
+            <ul className="main-nav" onMouseLeave={this.props.handleMouseLeave}>
               <li>
                 <NavLink
                   exact
                   to="/"
-                  onClick={this.handleClick}
-                  onMouseEnter={this.handleMouseEnter}
+                  onClick={this.props.handleClick}
+                  onMouseEnter={this.props.handleMouseEnter}
                 >
                   Home
                 </NavLink>
@@ -183,8 +110,8 @@ class Navbar extends Component {
               {/* <li>
               <NavLink
                 to="/about"
-                onClick={this.handleClick}
-                onMouseEnter={this.handleMouseEnter}
+                onClick={this.props.handleClick}
+                onMouseEnter={this.props.handleMouseEnter}
               >
                 About
               </NavLink>
@@ -193,8 +120,8 @@ class Navbar extends Component {
                 <NavLink
                   to="/menu"
                   // to="/menu/appetizers" THIS THROWS ERROR
-                  onClick={this.handleClick}
-                  onMouseEnter={this.handleMouseEnter}
+                  onClick={this.props.handleClick}
+                  onMouseEnter={this.props.handleMouseEnter}
                 >
                   Menu
                 </NavLink>
@@ -202,8 +129,8 @@ class Navbar extends Component {
               <li>
                 <NavLink
                   to="/bar"
-                  onClick={this.handleClick}
-                  onMouseEnter={this.handleMouseEnter}
+                  onClick={this.props.handleClick}
+                  onMouseEnter={this.props.handleMouseEnter}
                 >
                   Bar
                 </NavLink>
@@ -211,8 +138,8 @@ class Navbar extends Component {
               {/* <li>
               <NavLink
                 to="/gallery"
-                onClick={this.handleClick}
-                onMouseEnter={this.handleMouseEnter}
+                onClick={this.props.handleClick}
+                onMouseEnter={this.props.handleMouseEnter}
               >
                 Gallery
               </NavLink>
@@ -220,8 +147,8 @@ class Navbar extends Component {
               <li>
                 <NavLink
                   to="/reservation"
-                  onClick={this.handleClick}
-                  onMouseEnter={this.handleMouseEnter}
+                  onClick={this.props.handleClick}
+                  onMouseEnter={this.props.handleMouseEnter}
                 >
                   Reservation
                 </NavLink>
@@ -229,8 +156,8 @@ class Navbar extends Component {
               {/* <li>
               <NavLink
                 to="/contact"
-                onClick={this.handleClick}
-                onMouseEnter={this.handleMouseEnter}
+                onClick={this.props.handleClick}
+                onMouseEnter={this.props.handleMouseEnter}
               >
                 Contact
               </NavLink>
@@ -241,14 +168,14 @@ class Navbar extends Component {
                   smooth={true}
                   duration={1000} // constant time no matter what distance is.
                   // duration={ distance =>  (distance*2 ) }
-                  onMouseEnter={this.handleMouseEnter}
+                  onMouseEnter={this.props.handleMouseEnter}
                 >
                   Contact
                 </ScrollLink>
               </li>
               <Underline
-                defaultState={this.state.defaultState}
-                hoverState={this.state.hoverState}
+                defaultState={this.props.defaultState}
+                hoverState={this.props.hoverState}
               />
             </ul>
           </div>

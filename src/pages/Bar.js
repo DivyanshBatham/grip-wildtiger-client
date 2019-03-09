@@ -15,7 +15,7 @@ class Bar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: {}
+      // menu: {}
     };
     this.myRef = React.createRef();
   }
@@ -35,9 +35,10 @@ class Bar extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.setState({
-      menu
-    });
+    this.props.findAndSetUnderline();
+    // this.setState({
+    //   menu
+    // });
   }
 
   render() {

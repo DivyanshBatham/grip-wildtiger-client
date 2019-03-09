@@ -15,7 +15,6 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // defaultState: { width: "", left: "" }
       // activeCategory: "Appetizers",
       menu: {}
     };
@@ -43,8 +42,12 @@ class Menu extends Component {
   };
 
   componentDidMount() {
-    // console.log("Props: ", this.props.match);
     window.scrollTo(0, 0);
+    this.props.findAndSetUnderline();
+
+    // if (this.props.routerProps.location.pathname === "/reservation/book")
+    //   scroll.scrollTo(this.ctaTarget.current.offsetTop, { smooth: true, duration: 500, offset: 0 });
+
     // scroll.scrollTo(0, {smooth:true ,duration:1000});
 
     // Mimicking api fetch request:

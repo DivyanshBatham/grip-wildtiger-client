@@ -201,7 +201,7 @@ class Booking extends Component {
   };
 
   componentDidMount = () => {
-    console.log(times);
+    // console.log(times);
     // let time = moment(new Date().getTime())
     //   .utcOffset("-0800")
     //   .format("HH:mm");
@@ -227,7 +227,7 @@ class Booking extends Component {
   };
 
   render() {
-    console.log(moment().toDate());
+    // console.log("Booking Rendered");
     return (
       <>
         <div className="happyhour">

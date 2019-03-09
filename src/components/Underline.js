@@ -5,12 +5,12 @@ const Underline = props => {
   if (props.hoverState)
     styles = {
       width: props.hoverState.width,
-      left: props.hoverState.left
+      left: props.hoverState.left,
     };
   else
     styles = {
       width: props.defaultState.width,
-      left: props.defaultState.left
+      left: props.defaultState.left,
     };
 
   return <div className="underline" style={styles} />;
