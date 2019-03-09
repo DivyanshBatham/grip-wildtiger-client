@@ -8,13 +8,13 @@ class MenuList extends Component {
   }
 
   componentDidMount = () => {
-    console.log("Menulist.js mounted");
+    // console.log("Menulist.js mounted");
     // if(this.props.fixScroll)
     //   this.props.fixScroll();
   };
 
   componentDidUpdate = () => {
-    console.log("Menulist.js updated");
+    // console.log("Menulist.js updated");
     // console.log(this.myRef.current.offsetTop);
     // window.scrollTo(0, this.myRef.current.offsetTop);
   };

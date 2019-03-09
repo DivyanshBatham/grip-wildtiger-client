@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Block = props => {
-  // console.log(this.props.dsda);
   return (
     <>
       <div className="block-head">
@@ -15,9 +14,16 @@ const Block = props => {
           {props.href && (
             <>
               <br />
-              <Link to={props.href} className="block-link except-mobile">
-                {props.href_text}
-              </Link>
+              {props.href.slice(0,3) === "tel" && (
+                <a href={props.href} className="block-link except-mobile">
+                  {props.href_text}
+                </a>
+              )}
+              {props.href.slice(0,3) !== "tel" && (
+                <Link to={props.href} className="block-link except-mobile">
+                  {props.href_text}
+                </Link>
+              )}
             </>
           )}
         </p>

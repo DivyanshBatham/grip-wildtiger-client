@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect, NavLink } from "react-router-dom";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
 import Hero from "../components/Hero";
 import Block from "../components/Block";
@@ -43,7 +43,7 @@ class Menu extends Component {
   };
 
   componentDidMount() {
-    console.log("Props: ", this.props.match);
+    // console.log("Props: ", this.props.match);
     window.scrollTo(0, 0);
     // scroll.scrollTo(0, {smooth:true ,duration:1000});
 
@@ -61,13 +61,15 @@ class Menu extends Component {
     return (
       <>
         <Hero
-          sub="Browse our Delights"
+          // sub="Browse our Delights"
+          sub="Sate your Hunger with our Delights"
           main="Discover Our Menu"
-          cta="Happy Hour menu"
+          // cta="Happy Hour menu"
+          cta="Craving? Choose your Appetite!"
           bg_class="menu"
         />
 
-        <section>
+        <section id="ctaTarget">
           <div className="container">
             <div className="row">
               <div className="col-10 offset-1">
@@ -123,7 +125,7 @@ class Menu extends Component {
             render={props => {
               // window.scrollTo(0, 500);
               // this.fixScroll();
-              console.log("Inside Route, ", props);
+              // console.log("Inside Route, ", props);
               let { category } = props.match.params;
               if (menu[category])
                 return (

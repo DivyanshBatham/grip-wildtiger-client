@@ -8,7 +8,6 @@ import Testimonials from "../components/Testimonials";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -30,18 +29,12 @@ class Home extends Component {
     return (
       <>
         <Hero
-          sub="We Serve Fresh & Delicious"
+          sub="We serve Fresh & Delicious"
           main="Laotian & Thai Cuisines"
           cta="Hungry? Reserve your spot."
           bg_class="home"
+          href="/reservation"
         />
-        {/* <header>
-            <div className="hero shadow">
-                <h3 className="hero__sub">We Serve Fresh & Delicious</h3>
-                <h2 className="hero__main">Laotian & Thai Cuisines</h2>
-                <button className="cta">Hungry? Reserve your spot.</button>
-            </div>
-        </header> */}
         <section>
           <div className="container">
             <div className="row">
@@ -109,6 +102,7 @@ class Home extends Component {
                     <div />
                   </div>
                 </div>
+                {/* TODO: Fix Underling when clicking on links except navbar */}
                 <Link to="/menu" className="block-link mobile-only">
                   View Full Menu
                 </Link>
@@ -118,7 +112,7 @@ class Home extends Component {
             <div className="row mt-5rem flex-colrev">
               <div className="col-xs-12 col-sm-5 vAlign">
                 <div className="widescreen-ratio bar" />
-                <Link to="/" className="block-link mobile-only">
+                <Link to="/bar" className="block-link mobile-only">
                   View Bar
                 </Link>
               </div>
@@ -128,7 +122,7 @@ class Home extends Component {
                   // heading="Chill at"
                   subheading="The Bar"
                   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex est, scelerisque ut enim in, faucibus venenatis neque. Vivamus finibus dapibus nisi, vitae condimentum lacus."
-                  href="/"
+                  href="/bar"
                   href_text="View Bar"
                 />
               </div>
@@ -150,13 +144,13 @@ class Home extends Component {
                   heading="Make"
                   subheading="Reservation"
                   text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
-                  href="/"
+                  href="/reservation"
                   href_text="Book your table"
                 />
               </div>
               <div className="col-xs-12 col-sm-5 vAlign">
                 <div className="widescreen-ratio reservation" />
-                <Link to="/" className="block-link mobile-only">
+                <Link to="/reservation" className="block-link mobile-only">
                   Book your table
                 </Link>
               </div>
@@ -165,25 +159,40 @@ class Home extends Component {
             <div className="row mt-5rem flex-colrev">
               <div className="col-xs-12 col-sm-5 vAlign">
                 <div className="widescreen-ratio takeout" />
-                <Link to="/" className="block-link mobile-only">
+                {/* TODO: Make it open the calling app */}
+                {/* https://www.tripadvisor.in/Restaurant_Review-g319726-d1191155-Reviews-Under_the_Mango_Tree-Bhopal_Bhopal_District_Madhya_Pradesh.html */}
+                {/* onclick="widgetEvCall('handlers.onPhoneClicked', event, this); window.open('tel:+919993091077', '_self');" */}
+                <a
+                  href="tel:+1-360-882-8887"
+                  className="block-link mobile-only"
+                >
                   CALL +1 360 882 8887
-                </Link>
+                </a>
+                {/* <a href="tel:+1-303-499-7111">+1 (303) 499-7111</a> */}
               </div>
               <div className="col-xs-12 col-sm-7 vAlign">
                 <Block
                   heading="Take Out"
                   subheading="Food"
                   text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
-                  href="/"
+                  href="tel:+1-360-882-8887"
                   href_text="CALL +1 360 882 8887"
                 />
               </div>
             </div>
           </div>
         </section>
-
         <section className="map-section">
           <div className="container">
+            {/* <iframe
+              src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d44658.92452599251!2d-122.5373373456343!3d45.606970696074455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x0%3A0xa3e862fb601c0350!2sWild+Tiger!3m2!1d45.606916!2d-122.50231799999999!5e0!3m2!1sen!2sin!4v1552029815308"
+              // width="600"
+              // height="450"
+              frameborder="0"
+              style={{ border: 0 }}
+              allowfullscreen
+            /> */}
+
             {/* <div className="row"> */}
             {/* <div className="col-4"> */}
             <Timings />
@@ -198,7 +207,7 @@ class Home extends Component {
           </div>
         </section>
 
-        <Footer/>
+        <Footer />
       </>
     );
   }

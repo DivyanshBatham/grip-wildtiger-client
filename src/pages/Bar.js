@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect, NavLink } from "react-router-dom";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
 import Hero from "../components/Hero";
 import Block from "../components/Block";
@@ -48,13 +48,13 @@ class Bar extends Component {
           //   sub="Select from our wide range"
           sub="We serve Geniune and Classic Drinks" // classic
           main="The Bar"
-          cta="Thirsty? Pick a drink from our shelf"
+          cta="Thirsty? Pick a drink from our shelf!"
           //   cta="Thirsty? Have a drink from our shelf"
           //   cta="Thirsty? Browse"
           bg_class="bar-bg"
         />
 
-        <section>
+        <section id="ctaTarget">
           <div className="container">
             <div className="row">
               <div className="col-10 offset-1">
@@ -68,7 +68,7 @@ class Bar extends Component {
             </div>
           </div>
 
-          {/* ********************** TODO - Add App Shells for navbar and menu items ************************ */}
+          {/* TODO: Add App Shells for navbar and menu items ************************ */}
           <div className="scrollME" ref={this.myRef}>
             &nbsp;
           </div>

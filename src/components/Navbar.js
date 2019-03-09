@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link, NavLink, withRouter } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 import Underline from "./Underline";
 
@@ -38,18 +38,37 @@ class Navbar extends Component {
 
   handleClick = e => {
     // console.log(e);
+    // console.log(e.target);
+    // console.log(e.target.getAttribute('href'));
     const targetData = e.target.getBoundingClientRect();
     // TODO: When clicking the same page on nav, smooth scroll to top
     // scroll.scrollTo(0, {smooth:true ,duration:1000});
     this.setState({
       defaultState: {
         width: targetData.width,
-        left: targetData.left
-      }
+        left: targetData.left,
+      },
+      currentPage: e.target.getAttribute('href')
     });
   };
+  
+  // highlightNav = () => {
+  //   // const targetData = ref.current.getBoundingClientRect();
+  //   const targetData = document
+  //       .querySelector(".main-nav .active")
+  //       .getBoundingClientRect();
+    
+  //   this.setState({
+  //     defaultState: {
+  //       width: targetData.width,
+  //       left: targetData.left
+  //     }
+  //   });
+  // }
 
   componentDidMount = () => {
+    // console.log(this.props);
+    // alert("Navbar.js Mounted");
     setTimeout(() => {
       const targetData = document
         .querySelector(".main-nav .active")
@@ -62,6 +81,15 @@ class Navbar extends Component {
       });
     }, 1000);
   };
+
+  componentDidUpdate = () => {
+    // console.log("Navbar.js updated");
+    // alert("Navbar.js Updated")
+    // console.log(this.props, this.state.currentPage, this.props.location.pathname);
+    // if(this.props.match)
+    // if(this.props.location.pathname !== this.state.currentPage );
+      // this.highlightNav();
+  }
 
   render() {
     return (
@@ -230,4 +258,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

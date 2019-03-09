@@ -56,6 +56,7 @@ class Testimonials extends Component {
             <div className="row">
               <div className="col-10 offset-1">
                 <div className="author">
+                {/* TODO: Create your own Stars Rating UI */}
                   <div className="author__rating">
                     <span className="fa fa-star checked" />
                     <span className="fa fa-star checked" />
