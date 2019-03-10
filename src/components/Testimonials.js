@@ -148,6 +148,7 @@ class Testimonials extends Component {
             <this.generateControls />
           </div>
         </div>
+        {/* TODO: Add Next, Previous Buttons */}
         {/* <div className="buttons prev">&lt;</div> */}
         {/* <div className="buttons next">&gt;</div> */}
         {/* <div className="carousel">
