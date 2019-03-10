@@ -10,6 +10,7 @@ import Menu from "./pages/Menu";
 import Bar from "./pages/Bar";
 import Reservation from "./pages/Reservation";
 
+import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "./App.scss";
 
 class App extends Component {
