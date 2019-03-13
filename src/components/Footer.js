@@ -171,6 +171,7 @@ const Footer = () => {
           href="https://github.com/DivyanshBatham"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Site made by Not Not Curious"
         >
           !NotCurious
         </a>

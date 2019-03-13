@@ -43,7 +43,11 @@ class Menu extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.findAndSetUnderline();
+    if (!this.props.appMounted)
+      setTimeout(() => {
+        this.props.findAndSetUnderline();
+      }, 2000);
+    else this.props.findAndSetUnderline();
 
     // if (this.props.routerProps.location.pathname === "/reservation/book")
     //   scroll.scrollTo(this.ctaTarget.current.offsetTop, { smooth: true, duration: 500, offset: 0 });

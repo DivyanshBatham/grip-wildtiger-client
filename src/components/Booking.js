@@ -6,9 +6,13 @@ import "react-day-picker/lib/style.css";
 import { formatDate, parseDate } from "react-day-picker/moment";
 import "moment/locale/it"; // HELP: Now sure, why it's here.
 import moment from "moment";
+import fire from "../config/fire";
+import { Link as ScrollLink } from "react-scroll";
 
 import { times } from "./Timings";
 
+const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+const numberRegex = /^(\+\d{1,3}[- ]?)?(\d{10}|\d{3}[- ]?\d{3}[- ]?\d{4}|\(\d{3}\)[- ]?\d{3}[- ]?\d{4})$/;
 moment.locale("en");
 
 const getMinutes = time => {
@@ -91,9 +95,11 @@ class Booking extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isSubmitted: false,
+      errors: {},
       date: "",
-      time: undefined,
-      guests: undefined,
+      time: "",
+      guests: "",
       guestOptions: [
         { value: "1", label: "1 Person" },
         { value: "2", label: "2 People" },
@@ -130,25 +136,35 @@ class Booking extends Component {
   //     Sunday: "12:00AM - 9:00PM"
   //   };
 
-  handleBooking = event => {
-    event.preventDefault();
-    alert("Booking Done");
-  };
-
   selectGuest = (guests, actionMeta) => {
-    // console.log(count, actionMeta);
     this.setState({
       guests: guests
     });
+    // Live errors:
+    // this.setState(prevState=>({
+    //   guests: guests,
+    //   errors: {
+    //     ...prevState.errors,
+    //     guests: ''
+    //   }
+    // }));
   };
 
   selectTime = (time, actionMeta) => {
     this.setState({
       time: time
     });
+    // Live errors:
+    // this.setState(prevState => ({
+    //   time: time,
+    //   errors: {
+    //     ...prevState.errors,
+    //     time: ""
+    //   }
+    // }));
   };
 
-  handleStartDayChange = date => {
+  selectDate = date => {
     // No need to worry about time zones.
     // console.log(
     //   moment(date)
@@ -198,38 +214,94 @@ class Booking extends Component {
       date: date,
       timeOptions: newTimeOptions
     });
+    // Live errors:
+    // this.setState(prevState => ({
+    //   date: date,
+    //   timeOptions: newTimeOptions,
+    //   errors: {
+    //     ...prevState.errors,
+    //     date: ""
+    //   }
+    // }));
   };
 
-  componentDidMount = () => {
-    // console.log("Booking Mounted");
-    // if (this.props.guests)
-    //   this.setState({
-    //     guests: this.props.guests
-    //   });
-    // console.log(times);
-    // let time = moment(new Date().getTime())
-    //   .utcOffset("-0800")
-    //   .format("HH:mm");
-    // let day = moment(new Date().getTime())
-    //   .utcOffset("-0800")
-    //   .format("dddd");
-    // let [h, m] = time.split(":");
-    // console.log(time, day, h, m);
-    // export const times = {
-    //   Monday: "11:00AM - 9:00PM",
-    //   Tuesday: "11:00AM - 9:00PM",
-    //   Wedneday: "11:00AM - 9:00PM",
-    //   Thursday: "11:00AM - 9:00PM",
-    //   Friday: "11:00AM - 10:00PM",
-    //   Saturday: "12:00AM - 10:00PM",
-    //   Sunday: "12:00AM - 9:00PM"
-    // };
-    // let [hh, mm, HH, MM] = times[day].match(/\d+/g);
-    // console.log(hh, mm, HH, MM);
+  handleSubmit = event => {
+    event.preventDefault();
+    // console.log("handleSubmit()");
+    // Clean up the email :
+    // this.setState({
+    //   isSubmitted: true
+    // });
+
+    let name = this.nameInput.value;
+    let number = this.numberInput.value;
+    let email = this.emailInput.value;
+
+    let errors = {};
+
+    // Check for empty fields:
+    if (name === "") errors.name = "* name is required";
+    if (number === "") errors.number = "* number is required";
+    else if (!numberRegex.test(number))
+      errors.number = "* number is invalid";
+
+    if (email === "") errors.email = "* email is required";
+    else if (!emailRegex.test(email)) errors.email = "* email is invalid";
+
+    if (this.state.time === "") errors.time = "* time is required";
+    if (this.state.guests === "") errors.guests = "* guests is required";
+    if (this.state.date === "") errors.date = "* date is required";
+
+    if (Object.entries(errors).length === 0 && errors.constructor === Object) {
+      // console.log("Sending data to firebase");
+      const reservationData = {
+        name: name,
+        number: number,
+        email: email,
+        // date: this.state.date,
+        date: moment(this.state.date).format("dddd, MMMM Do YYYY"),
+        time: this.state.time.value,
+        guests: this.state.guests.value,
+        isApproved: false
+      };
+      // console.log(reservationData);
+      fire
+        .database()
+        .ref("reservations")
+        .push(reservationData);
+      this.setState({
+        isSubmitted: true
+      });
+    } else {
+      // console.log("Errors is the form");
+      this.setState({
+        errors
+      });
+    }
+
+    // if (emailRegex.test(email)) {
+    // } else {
+    //   // alert("Invalid Email");
+    //   if (email === "")
+    //     this.setState({ isEmailPresent: false, isValidEmail: true });
+    //   else this.setState({ isValidEmail: false, isEmailPresent: true });
+    // }
+  };
+
+  resetForm = () => {
+    this.nameInput.value = "";
+    this.numberInput.value = "";
+    this.emailInput.value = "";
+    this.setState({
+      isSubmitted: false,
+      errors: {},
+      date: "",
+      time: "",
+      guests: ""
+    });
   };
 
   render() {
-    // console.log("Booking Rendered");
     return (
       <>
         <div className="happyhour">
@@ -237,68 +309,139 @@ class Booking extends Component {
           <p className="happyhour__description">
             Fill the form and we will contact you *
           </p>
+          <div className="reservationForm">
+            <div className="booking-form">
+              <div
+                className="inputWrapper"
+                data-error={this.state.errors.date}
+                style={{ zIndex: 12 }}
+              >
+                <DayPickerInput
+                  dayPickerProps={{
+                    enableOutsideDays: false,
+                    disabledDays: [
+                      {
+                        before: moment().toDate()
+                      }
+                    ]
+                  }}
+                  inputProps={{ readOnly: true }}
+                  onDayChange={this.selectDate}
+                  formatDate={formatDate}
+                  parseDate={parseDate}
+                  format="DD/MM/YYYY"
+                  placeholder="Date"
+                  value={this.state.date}
+                />
+              </div>
+              <div
+                className="inputWrapper"
+                data-error={this.state.errors.time}
+                style={{ zIndex: 11 }}
+              >
+                <Select
+                  isSearchable={false}
+                  options={this.state.timeOptions}
+                  value={this.state.time}
+                  placeholder="Time"
+                  onChange={this.selectTime}
+                  className="selector"
+                  classNamePrefix="selector"
+                  data-error={this.state.errors.time}
+                />
+              </div>
+              <div
+                className="inputWrapper"
+                data-error={this.state.errors.guests}
+                style={{ zIndex: 10 }}
+              >
+                <Select
+                  isSearchable={false}
+                  options={this.state.guestOptions}
+                  value={this.state.guests || this.props.guests}
+                  placeholder="Guests"
+                  onChange={this.selectGuest}
+                  className="selector"
+                  classNamePrefix="selector"
+                  data-error={this.state.errors.guests}
+                />
+              </div>
+            </div>
 
-          <div className="booking-form">
-            <DayPickerInput
-              dayPickerProps={{
-                enableOutsideDays: false,
-                disabledDays: [
-                  {
-                    before: moment().toDate()
-                  }
-                ]
-              }}
-              inputProps={{ readOnly: true }}
-              onDayChange={this.handleStartDayChange}
-              formatDate={formatDate}
-              parseDate={parseDate}
-              format="DD/MM/YYYY"
-              placeholder="Date"
-              value={this.state.date}
-            />
-            <Select
-              isSearchable={false}
-              options={this.state.timeOptions}
-              value={this.state.time}
-              placeholder="Time"
-              onChange={this.selectTime}
-              className="selector"
-              classNamePrefix="selector"
-            />
-            <Select
-              isSearchable={false}
-              options={this.state.guestOptions}
-              value={this.state.guests || this.props.guests}
-              placeholder="Guests"
-              onChange={this.selectGuest}
-              className="selector"
-              classNamePrefix="selector"
-            />
-          </div>
+            <div className="booking-form personalDetails">
+              <div className="inputWrapper" data-error={this.state.errors.name}>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  ref={el => (this.nameInput = el)}
+                />
+              </div>
+              <div
+                className="inputWrapper"
+                data-error={this.state.errors.number}
+              >
+                <input
+                  type="text"
+                  // placeholder="Your Number (+1 999 999 9999)"
+                  // placeholder="Your Number (###) ###-####"
+                  placeholder="Your Number +1 (999) 999-9999"
+                  ref={el => (this.numberInput = el)}
+                />
+              </div>
+              <div
+                className="inputWrapper"
+                data-error={this.state.errors.email}
+              >
+                <input
+                  type="text"
+                  placeholder="Your Email Address"
+                  ref={el => (this.emailInput = el)}
+                />
+              </div>
+            </div>
 
-          <div className="booking-form personalDetails">
-            <input type="text" placeholder="Your Name" />
-            <input type="text" placeholder="Your Number" />
-            <input type="text" placeholder="Your Email" />
-          </div>
+            <div className="vAlign">
+              <button className="cta cta-sub" onClick={this.handleSubmit}>
+                Submit
+              </button>
+            </div>
 
-          <div className="vAlign">
-            <button className="cta cta-sub" onClick={this.handleSubmit}>
-              Submit
-            </button>
+            <div
+              className={
+                this.state.isSubmitted ? "formAlert show" : "formAlert"
+              }
+            >
+              <div className="formAlert__close" onClick={this.resetForm}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                  <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+              </div>
+              <p className="formAlert__heading">Wonderful! You're all set!</p>
+              <p>
+                Sit tight and we'll send you an email once we confirm your
+                reservation.
+              </p>
+              <p>
+                Also,&nbsp;
+                <ScrollLink
+                  className="formAlert__link"
+                  to="subTarget"
+                  smooth={true}
+                  duration={1000} // constant time no matter what distance is.
+                  // duration={ distance =>  (distance*2 ) }
+                >
+                  Subscribe
+                </ScrollLink>
+                &nbsp;to our newletter and be the first one to know about our
+                newest menu items & latest offers.
+              </p>
+            </div>
           </div>
-          {/* <ul style={{ color: "white" }}>
-            <li>Date</li>
-            <li>Time Slots (Every 15mins)</li>
-            <li>
-              Number of Guests (1,2,3,4,5,6, 6+) Choose the number of guests
-              going
-            </li>
-            <li>Guest Details - *Name, *Mobile, email, any special request,</li>
-          </ul> */}
 
           <p className="happyhour__terms">
-            * Alternatively, You can call us at +1 360 882 8887
+            * Alternatively, You can call us at +1 (360) 882-8887
+            {/* * Alternatively, You can call us at +1 360 882 8887 */}
           </p>
         </div>
       </>

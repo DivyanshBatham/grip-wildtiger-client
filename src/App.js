@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { throttle } from "throttle-debounce";
+import { animateScroll as scroll } from "react-scroll";
 
 // Import Local components:
 import Navbar from "./components/Navbar";
@@ -40,13 +41,13 @@ class App extends Component {
 
   handleClick = e => {
     const targetData = e.target.getBoundingClientRect();
-    // TODO: When clicking the same page on nav, smooth scroll to top
+    if (e.target.getAttribute("class"))
+      scroll.scrollToTop({ smooth: true, duration: 500 });
     this.setState({
       defaultState: {
         width: targetData.width,
         left: targetData.left
-      },
-      currentPage: e.target.getAttribute("href")
+      }
     });
   };
 
@@ -74,7 +75,10 @@ class App extends Component {
     // const foodmenu = document.querySelector('.foodmenu__nav');
   };
 
-  componentWillMount = () => {
+  componentDidMount = () => {
+    this.setState({
+      appMounted: true
+    });
     window.addEventListener(
       "scroll",
       throttle(300, () => {
@@ -110,14 +114,24 @@ class App extends Component {
             path="/"
             // component={Home}
             render={props => {
-              return <Home findAndSetUnderline={this.findAndSetUnderline} />;
+              return (
+                <Home
+                  findAndSetUnderline={this.findAndSetUnderline}
+                  appMounted={this.state.appMounted}
+                />
+              );
             }}
           />
           <Route
             path="/menu"
             // component={Menu}
             render={props => {
-              return <Menu findAndSetUnderline={this.findAndSetUnderline} />;
+              return (
+                <Menu
+                  findAndSetUnderline={this.findAndSetUnderline}
+                  appMounted={this.state.appMounted}
+                />
+              );
             }}
           />
           {/* <Route path="/menu/:category" component={Menu} />  */}
@@ -126,7 +140,12 @@ class App extends Component {
             path="/bar"
             // component={Bar}
             render={props => {
-              return <Bar findAndSetUnderline={this.findAndSetUnderline} />;
+              return (
+                <Bar
+                  findAndSetUnderline={this.findAndSetUnderline}
+                  appMounted={this.state.appMounted}
+                />
+              );
             }}
           />
           <Route
@@ -134,7 +153,11 @@ class App extends Component {
             // component={Reservation}
             render={props => {
               return (
-                <Reservation findAndSetUnderline={this.findAndSetUnderline} routerProps={props}/>
+                <Reservation
+                  findAndSetUnderline={this.findAndSetUnderline}
+                  appMounted={this.state.appMounted}
+                  routerProps={props}
+                />
               );
             }}
           />

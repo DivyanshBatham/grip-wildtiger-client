@@ -16,8 +16,14 @@ class Home extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    // console.log("Home.js Mounted");
-    this.props.findAndSetUnderline();
+    if (!this.props.appMounted) {
+      setTimeout(() => {
+        this.props.findAndSetUnderline();
+      }, 2000);
+    } else {
+      this.props.findAndSetUnderline();
+    }
+
     // const homebg = new Image();
     // homebg.src = "../assets/menu-bg-min.jpg";
     // homebg.onload = function() {
@@ -104,7 +110,6 @@ class Home extends Component {
                     <div />
                   </div>
                 </div>
-                {/* TODO: Fix Underling when clicking on links except navbar */}
                 <Link to="/menu" className="block-link mobile-only">
                   View Full Menu
                 </Link>
@@ -123,7 +128,7 @@ class Home extends Component {
                   heading="Relax At"
                   // heading="Chill at"
                   subheading="The Bar"
-                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex est, scelerisque ut enim in, faucibus venenatis neque. Vivamus finibus dapibus nisi, vitae condimentum lacus."
+                  text="Bar Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex est, scelerisque ut enim in, faucibus venenatis neque. Vivamus finibus dapibus nisi, vitae condimentum lacus."
                   href="/bar"
                   href_text="View Bar"
                 />
@@ -145,14 +150,15 @@ class Home extends Component {
                 <Block
                   heading="Make"
                   subheading="Reservation"
-                  text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
-                  href="/reservation/book"
-                  href_text="Book your table"
+                  text="Reservation Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat nisi urna, ut semper sapien interdum ut. Phasellus vitae velit at quam rutrum pulvinar vitae at sem."
+                  // text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
+                  href="/reservation"
+                  href_text="View Reservations"
                 />
               </div>
               <div className="col-xs-12 col-sm-5 vAlign">
                 <div className="widescreen-ratio reservation" />
-                <Link to="/reservation/book" className="block-link mobile-only">
+                <Link to="/reservation" className="block-link mobile-only">
                   Book your table
                 </Link>
               </div>
@@ -161,24 +167,21 @@ class Home extends Component {
             <div className="row mt-5rem flex-colrev">
               <div className="col-xs-12 col-sm-5 vAlign">
                 <div className="widescreen-ratio takeout" />
-                {/* TODO: Make it open the calling app */}
-                {/* https://www.tripadvisor.in/Restaurant_Review-g319726-d1191155-Reviews-Under_the_Mango_Tree-Bhopal_Bhopal_District_Madhya_Pradesh.html */}
-                {/* onclick="widgetEvCall('handlers.onPhoneClicked', event, this); window.open('tel:+919993091077', '_self');" */}
                 <a
                   href="tel:+1-360-882-8887"
                   className="block-link mobile-only"
                 >
-                  CALL +1 360 882 8887
+                  CALL +1 (360) 882-8887
                 </a>
-                {/* <a href="tel:+1-303-499-7111">+1 (303) 499-7111</a> */}
               </div>
               <div className="col-xs-12 col-sm-7 vAlign">
                 <Block
                   heading="Take Out"
                   subheading="Food"
-                  text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
+                  text="Take Out Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ex est, scelerisque ut enim in, faucibus venenatis neque. Vivamus finibus dapibus nisi, vitae condimentum lacus."
+                  // text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
                   href="tel:+1-360-882-8887"
-                  href_text="CALL +1 360 882 8887"
+                  href_text="CALL +1 (360) 882-8887"
                 />
               </div>
             </div>

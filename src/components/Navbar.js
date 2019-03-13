@@ -8,7 +8,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isHamActive: false,
+      isHamActive: false
     };
   }
 
@@ -23,50 +23,6 @@ class Navbar extends Component {
       <>
         <nav
           className={
-            this.state.isHamActive
-              ? "hamburger__menu active"
-              : "hamburger__menu"
-          }
-        >
-          <ul>
-            <li>
-              <NavLink exact to="/" onClick={this.hamburgerActive}>
-                Home
-              </NavLink>
-            </li>
-            {/* <li><NavLink to="/about" onClick={this.hamburgerActive}>About</NavLink></li> */}
-            <li>
-              <NavLink to="/menu" onClick={this.hamburgerActive}>
-                Menu
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/bar" onClick={this.hamburgerActive}>
-                Bar
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/reservation" onClick={this.hamburgerActive}>
-                Reservation
-              </NavLink>
-            </li>
-            <li>
-                <ScrollLink
-                  to="footer"
-                  smooth={true}
-                  duration={1000} //constant time no matter what distance is.
-                  // duration={ distance =>  distance / 50 }
-                  onClick={this.hamburgerActive}
-                  // onMouseEnter={this.props.handleMouseEnter}
-                >
-                  Contact
-                </ScrollLink>
-              </li>
-            {/* <li><NavLink to="/contact" onClick={this.hamburgerActive}>Contact</NavLink></li> */}
-          </ul>
-        </nav>
-        <nav
-          className={
             "heronav " +
             (this.props.darkTheme ? " heronav-solidbg" : "") +
             (this.state.isHamActive ? " heronav-ham" : "")
@@ -77,12 +33,21 @@ class Navbar extends Component {
               Wild Tiger
             </Link>
 
-            {/* <button className={ "hamburger hamburger--3dx " + (this.state.isHamActive? "is-active": "")} type="button" onClick={this.hamburgerActive}>
-            <span className="hamburger-box">
-              <span className="hamburger-inner" />
-            </span>
-          </button> */}
-            <div
+            <button
+              aria-label="Navigation"
+              className={
+                "hamburger hamburger--spin " +
+                // "hamburger hamburger--3dx " +
+                (this.state.isHamActive ? "is-active" : "")
+              }
+              type="button"
+              onClick={this.hamburgerActive}
+            >
+              <span className="hamburger-box">
+                <span className="hamburger-inner" />
+              </span>
+            </button>
+            {/* <div
               className={
                 "hamburger hamburger--spin " +
                 // "hamburger hamburger--3dx " +
@@ -94,7 +59,7 @@ class Navbar extends Component {
               <div className="hamburger-box">
                 <div className="hamburger-inner" />
               </div>
-            </div>
+            </div> */}
 
             <ul className="main-nav" onMouseLeave={this.props.handleMouseLeave}>
               <li>
@@ -165,6 +130,7 @@ class Navbar extends Component {
               <li>
                 <ScrollLink
                   to="footer"
+                  tabIndex="0"
                   smooth={true}
                   duration={1000} // constant time no matter what distance is.
                   // duration={ distance =>  (distance*2 ) }
@@ -179,6 +145,51 @@ class Navbar extends Component {
               />
             </ul>
           </div>
+        </nav>
+        <nav
+          className={
+            this.state.isHamActive
+              ? "hamburger__menu active"
+              : "hamburger__menu"
+          }
+        >
+          <ul>
+            <li>
+              <NavLink exact to="/" onClick={this.hamburgerActive}>
+                Home
+              </NavLink>
+            </li>
+            {/* <li><NavLink to="/about" onClick={this.hamburgerActive}>About</NavLink></li> */}
+            <li>
+              <NavLink to="/menu" onClick={this.hamburgerActive}>
+                Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/bar" onClick={this.hamburgerActive}>
+                Bar
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/reservation" onClick={this.hamburgerActive}>
+                Reservation
+              </NavLink>
+            </li>
+            <li>
+              <ScrollLink
+                to="footer"
+                tabIndex="0"
+                smooth={true}
+                duration={1000} //constant time no matter what distance is.
+                // duration={ distance =>  distance / 50 }
+                onClick={this.hamburgerActive}
+                // onMouseEnter={this.props.handleMouseEnter}
+              >
+                Contact
+              </ScrollLink>
+            </li>
+            {/* <li><NavLink to="/contact" onClick={this.hamburgerActive}>Contact</NavLink></li> */}
+          </ul>
         </nav>
       </>
     );

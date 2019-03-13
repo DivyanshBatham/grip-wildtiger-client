@@ -9,7 +9,6 @@ import { animateScroll as scroll } from "react-scroll";
 import { Link as ScrollLink } from "react-scroll";
 import { throws } from "assert";
 
-// TODO: Complete reservation part
 
 class Reservation extends Component {
   constructor(props) {
@@ -20,7 +19,12 @@ class Reservation extends Component {
     this.ctaTarget = React.createRef();
   }
   componentDidMount() {
-    this.props.findAndSetUnderline();
+    if (!this.props.appMounted)
+      setTimeout(() => {
+        this.props.findAndSetUnderline();
+      }, 2000);
+    else this.props.findAndSetUnderline();
+
     window.scrollTo(0, 0);
     if (this.props.routerProps.location.pathname === "/reservation/book")
       scroll.scrollTo(this.ctaTarget.current.offsetTop, {
@@ -58,7 +62,8 @@ class Reservation extends Component {
                 <Block
                   heading="Make"
                   subheading="Reservation"
-                  text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
+                  text="Reservation Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat nisi urna, ut semper sapien interdum ut. Phasellus vitae velit at quam rutrum pulvinar vitae at sem."
+                  // text="We take reservations for lunch and dinner. To make a reservation, please call us at (027) 8338 145 between 10am-6pm, Monday to Friday."
                   href_text="Book your table"
                 />
               </div>
@@ -113,7 +118,7 @@ class Reservation extends Component {
             <Booking guests={this.state.guests} />
           </div>
         </section>
-        <section>
+        <section id="subTarget">
           <div className="container">
             <Subscribe />
           </div>
