@@ -147,7 +147,9 @@ const Footer = () => {
                 <div className="sociallinks__wrapper"> {tripAdvisor} </div><span>TripAdvisor</span>
               </a>
               <a
-                href="https://www.facebook.com/Wild-Tiger-Restaurant-and-Bar-197059763662547/"
+              // TODO: Set official facebook page.
+                href="https://www.facebook.com/wildtigerthairestaurantofficialpage/"
+                // href="https://www.facebook.com/Wild-Tiger-Restaurant-and-Bar-197059763662547/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

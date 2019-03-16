@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 
 import menu from "../data/menudata";
 
+// TODO: Add Menu Item Images.
+
 class Menu extends Component {
   constructor(props) {
     super(props);

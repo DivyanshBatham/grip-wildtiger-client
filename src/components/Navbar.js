@@ -130,7 +130,8 @@ class Navbar extends Component {
               <li>
                 <ScrollLink
                   to="footer"
-                  tabIndex="0"
+                  // tabIndex="0"
+                  href="/"
                   smooth={true}
                   duration={1000} // constant time no matter what distance is.
                   // duration={ distance =>  (distance*2 ) }
@@ -178,7 +179,8 @@ class Navbar extends Component {
             <li>
               <ScrollLink
                 to="footer"
-                tabIndex="0"
+                // tabIndex="0"
+                href="/"
                 smooth={true}
                 duration={1000} //constant time no matter what distance is.
                 // duration={ distance =>  distance / 50 }

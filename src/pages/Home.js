@@ -8,6 +8,8 @@ import Testimonials from "../components/Testimonials";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 
+// TODO: Add landing elements animation
+
 class Home extends Component {
   constructor(props) {
     super(props);

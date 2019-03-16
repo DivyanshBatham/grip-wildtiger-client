@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import StarRatings from "react-star-ratings";
 
 import quoteStart from "../assets/quote-start.svg";
 import quoteEnd from "../assets/quote-end.svg";
