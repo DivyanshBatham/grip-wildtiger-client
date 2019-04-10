@@ -1,11 +1,11 @@
-This is my design for the Grip Project #2.
+This is [my design](https://grip-wildtiger.firebaseapp.com) for the Grip Project #2.
 
 ## What is Grip Project?
 
 Grip stands for Grind Reel Incentive Project, it's basically a community project/contest in which the members of the Grind Reel (Discord Server) participate to flourish the portfolios and practice their skills. There are some prices also to motivate the contestants, which comes from the pockets of moderators.
 
 ### Grip Project #2:
-Rebuild a Restaurant Website ( [WildTiger - Laotian & Thai Cuisines](http://www.wildtigerwa.net/index.html) )
+Rebuild a Restaurant Website ( [WildTiger - Laotian & Thai Cuisines (current site)](http://www.wildtigerwa.net/index.html) )
 
 Wild Tiger is a well established restaurant and bar in the heart of Vancouver, Washington (US). The restaurant is gorgeous, but the website does not reflect the quality of the dine-in experience, or the tasty foods. Engineers, you are tasked with reconstructing this web site into a beautiful and responsive web application! Feel free to work as a group or to take on this task solo.
 
