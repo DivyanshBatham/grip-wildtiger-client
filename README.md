@@ -1,4 +1,5 @@
-This is [my design](https://grip-wildtiger.firebaseapp.com) for the Grip Project #2.
+**Update:**
+[My design](https://grip-wildtiger.firebaseapp.com) secured most upvotes & appreciation, and I was awarded the [first](https://www.youtube.com/watch?v=pRejFIoutr8) position.
 
 ## What is Grip Project?
 
